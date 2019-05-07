@@ -279,9 +279,10 @@ We can implement the injection in the place where it's immediately used. So _Cla
 
   * If we use the "Return Type" approach:
 
-	```
-	ResultDI<RepositoryA, Value> methodA();
-   
+```
+
+   ResultDI<RepositoryA, Value> methodA();
+  
    ResultDI<RepositoryB, Value> methodB();
    
    ResultDI<RepositoryC, Value> methodC();
@@ -297,8 +298,7 @@ We can implement the injection in the place where it's immediately used. So _Cla
    // example of calling ClassA:
    RepositoryA repoA = new...
    objA.method().using(repoA);
-   
-	```
+   ```
 
 The main advantage of this technique is that the signatures of our methods are simple: apart from the fact that we have moved the State into our method (in the parameter list or in the Return Type), there are quite straightforward.
 
