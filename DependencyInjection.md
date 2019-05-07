@@ -382,9 +382,12 @@ System.out.println(objA.methodA(repoA,repoB,repoC);
 System.out.println(objA.methodA().using(repoA).using(repoB).using(repoC);
 
 ```
-Even though the option2 looks more complex, it actually makes an important difference: The method needs NO parameter to do it's job, and all the dependencies (which are the _How_, not the _what_) are defined at the end.
+Even though the option2 looks more complex, it actually makes an important difference: The method needs NO parameter to do it's job, and all the dependencies (which are the _HOW_, not the _WHAT_) are defined at the end.
 
-On the other hand, the first option cam misslead you into thinking that the Repositories are the _What_, when they are not.
+On the other hand, the first option cam misslead you into thinking that the Repositories are the _WHAT_, when they are not.
+
+> NOTE:
+> For me, the WHAT is part of the Contract and is what you need to know in oder to get the info. The HOW, on the other hand, is more part of the implementation, and refers to the way things are done (by using a DB repository, or a Filesystem Repository, for example. Both return the same data, but in different ways)
 
 However, all of this is more of a semantics thing, and it depends to a great extend on the hability of the developers to do it the right way.
 
@@ -397,6 +400,7 @@ The *Reader Monad* Pattern is an implementation of this pattern, which relies in
 > More info about the _Reader Monad_:
 > 
 > [Dependency injection using the Reader Monad in Java 8](https://medium.com/@johnmcclean/dependency-injection-using-the-reader-monad-in-java8-9056d9501c75)
+
 > [A functional approach to dependency injection in Java](https://hackernoon.com/superkleisliisfantasticframeworksareatrocious-a-functional-approach-to-dependency-injection-in-e7bc8c4993fa)
 
 
@@ -409,7 +413,7 @@ The *Reader Monad* Pattern is an implementation of this pattern, which relies in
 
 We have already agreed that the injection must take place in one single point in our application. A different thing to decide is whether to use a "parameter" or a "Return type" approach.
 
-At the same time, it seems "agly" to me to make all those changes to our method singantures only to provide them with the dependencies. 
+At the same time, it seems "ugly" to me to make all those changes to our method signatures only to provide them with the dependencies. 
 
 So in this approach, I'll try to make things easier, and at the same time benefit from the Dependency Injection.
 
@@ -513,7 +517,7 @@ class CompositionRootProvider {
  
    * our methods are free of unnecessary dependencies, which are an implementation thing only.
    * The depenecnies are defined in a single point in our project. We can define it in a separate class like in the example above.
-   * Chaging from different environment (and changing the dependencies) is a matter of providing a new implementation of the CompositionRoot interface.
+   * Changing from different environment (and changing the dependencies) is a matter of providing a new implementation of the CompositionRoot interface.
  
  
  As a possible drawback that one might think of, is the fact that the Dependency Injection is not really external to our application, but it's part of our code base. There is nothing that stops the developers from messing with the CompositionRoot implementation, or puttin it in the wrong places, or duplicate them in different packages, etc. 
