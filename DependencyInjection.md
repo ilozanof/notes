@@ -362,7 +362,7 @@ We can implement all the injections in a single place, which is usually the firs
 	RepositoryC repoC = new...
 	objA.methodA().using(repoA).using(repoB).using(repoC);
    
-	```
+```
 
 you can see that in some cases the method signature can become a nightmare.
 
