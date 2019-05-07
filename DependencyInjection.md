@@ -106,7 +106,6 @@ If we remove all the State, we have to put that information somewhere else, and 
 
 This option will explained in detail later on, but for now suffice to say that the consequence of removing the state is to make our method signature more complex, since we need to add the dependency there.
  
- 
 ## Let's go Pure Functional (Kotlin style).
 
 "Pure Functional" means that we use Functions, not Objects. This is not possible in Java as we know, but it is in Kotlin. We are not diving into Kotlin  here since my experience is limited, but I'll try to address the question of dependecy injection in Kotlin, by trying to simulate a similar scenario in Java.
